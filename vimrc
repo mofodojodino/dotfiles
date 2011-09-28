@@ -1,6 +1,8 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 set cindent
+set t_Co=256
+colorscheme gptech
 set smartindent
 set autoindent
 set expandtab
@@ -36,10 +38,10 @@ set whichwrap+=<,>,[,]
 set noswapfile
 
 " Disable arrow keys.
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 " ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -105,7 +107,7 @@ if hostname() == 'oblion.lcl' || hostname() == 'proem.lcl'
 endif
 
 " Work
-if hostname() == 'xtal.local'
+if hostname() == 'Deans-Mac-mini.local'
     set tags=./tags
 
     " handle gpx files as php.
@@ -260,3 +262,21 @@ function! BufSel(pattern)
 endfunction
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
+
+" numpad fixup
+imap Oq 1
+imap Or 2
+imap Os 3
+imap Ot 4
+imap Ou 5
+imap Ov 6
+imap Ow 7
+imap Ox 8
+imap Oy 9
+imap Op 0
+imap On .
+imap Oo /
+imap Oj *
+imap Om -
+imap Ok +
+imap OX =
