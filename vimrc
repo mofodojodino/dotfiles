@@ -1,5 +1,9 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
 set cindent
 set t_Co=256
 colorscheme gptech
@@ -19,6 +23,8 @@ set showmatch
 set nohlsearch
 set nowrap
 set whichwrap=b,s,<,>,[,],~
+" set hlsearch
+set incsearch
 set shortmess=I
 set laststatus=2
 set foldmethod=marker
@@ -36,6 +42,7 @@ highlight StatusLine cterm=none ctermfg=6
 set backspace=indent,eol,start
 set whichwrap+=<,>,[,]
 set noswapfile
+set nobk
 
 " Disable arrow keys.
 " map <up> <nop>
@@ -108,7 +115,7 @@ endif
 
 " Work
 if hostname() == 'Deans-Mac-mini.local'
-    set tags=./tags
+    set tags=.tags
 
     " handle gpx files as php.
     au BufRead,BufNewFile *.gpx let is_php=1|setfiletype php
@@ -121,9 +128,9 @@ if hostname() == 'Deans-Mac-mini.local'
 endif
 
 " Common mappings
-" buffers
-nmap <silent> <Leader>[ :bprevious<CR>
-nmap <silent> <Leader>] :bnext<CR>
+" tabs
+nmap <silent> <Leader>[ :tabp<CR>
+nmap <silent> <Leader>] :tabn<CR>
 
 " windows - hold down CTL and use normal vim movement keys. hjkl
 nmap <silent> <Leader>k :wincmd k<CR>
@@ -141,12 +148,12 @@ nmap <Leader>a :Ack
 "
 "
 " Execute current sql file against a mysql database of the same name.
-nmap <silent> <Leader>m :!mysql %:r < %<CR>
+nmap <silent> <Leader>m :!ssh mydev mysql %:r < %<CR>
 nmap <silent> <Leader>bl :buffers<CR>
 nmap <silent> <Leader>ls :!ls -l<CR>
 nmap <silent> <Leader>tr :!tree<CR>
 nmap <silent> <Leader>sv :source ~/.vimrc<CR>
-nmap <silent> <Leader>ev :e ~/.vimrc<CR>
+nmap <silent> <Leader>ev :tabe ~/.vimrc<CR>
 nmap <silent> <Leader>svns :!svn status<CR>
 nmap <Leader>p :set paste<CR>
 nmap <Leader>ln :set number<CR>
