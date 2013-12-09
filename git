@@ -7,7 +7,7 @@
     br = branch
     ci = commit --verbose
     cia = commit --verbose -a
-    ciaa = commit --verbose -a --amend 
+    ciaa = commit --verbose -a --amend
     co = checkout
     conflicts = !git ls-files -u | cut -f 2 | sort -u
     current-branch = rev-parse --abbrev-ref HEAD
@@ -48,7 +48,7 @@
     wc = !git whatchanged
     wcp = !git whatchanged -p
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore_global
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [color]
     ui = true
@@ -61,9 +61,8 @@
     frag = magenta
     old = red bold
     new = green
+    whitespace = red reverse
 [color "status"]
     added = green
     changed = green
     untracked = red
-[color "diff"]
-    whitespace = red reverse
